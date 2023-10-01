@@ -1,0 +1,113 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="{% static 'styles.css'%}" rel="stylesheet" type="text/css" />
+</head>
+<style>
+  table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+  <h1><b>Victor de Castro Carneiro</b></h1>
+  <img src="{% static 'images/6FF60FD8-B3E0-44C7-9C2D-87968F04A751 (2).jpeg' %}" width=400>
+  
+  <h3><u>Minhas coleções de filmes favoritos</u></h3>
+  <p><i>Indiana Jones</i> A série "Indiana Jones" segue as aventuras do arqueólogo e aventureiro Dr. Henry "Indiana" Jones Jr. enquanto ele viaja pelo mundo em busca de artefatos históricos valiosos. Com um toque de ação emocionante e elementos de mistério, cada filme traz Indy enfrentando inimigos, decifrando enigmas e explorando locais exóticos. O personagem carismático e as sequências de ação empolgantes são marcas registradas da série, que mistura história, mitologia e intriga.</p>
+  <p><i>Senhor dos Anéis</i> Baseada nos livros de J.R.R. Tolkien, a trilogia "O Senhor dos Anéis" leva os espectadores a uma terra mágica chamada Terra-média. A história segue Frodo Baggins e sua jornada para destruir um poderoso anel maligno que pode trazer a ruína ao mundo. Repleto de personagens épicos, culturas complexas e batalhas épicas, os filmes capturam o conflito entre o bem e o mal enquanto exploram temas de amizade, sacrifício e coragem. Caso haja o desejo de maior imersão nesse universo aqui está o link dos livros da triologia <a href="https://www.tendagospel.com.br/produtos/box-pocket-trilogia-senhor-dos-aneis-j-r-r-tolkien/?variant=590004957&pf=mc&gclid=Cj0KCQjwrfymBhCTARIsADXTablnk_b6tzw7tPZxZXE3-4A3GLHMU14OOvFKQQ1L2vFs2lhz88TCB2QaAm4pEALw_wcB" target="_blank">Livros do Senhor dos Anéis</a></p>
+    <p><i>Star Wars</i> Os filmes se passam em uma galáxia distante, onde a luta entre os Jedi e os Sith, além da Rebelião contra o Império Galáctico, é o centro das atenções. A saga original segue a jornada de Luke Skywalker, um jovem fazendeiro que descobre seu destino como um Jedi e sua batalha contra o tirânico Império.</p>
+  <h2>Ordem das minhas coleções favoritas</h2>
+  <ol>
+    {% for movie in movies %}
+      <li>{{ movie.title }} <a href='/movies/update/{{ movie.id }}'> Atualizar </a>
+        <a href='/movies/delete/{{ movie.id }}'> Deletar </a>
+      
+      </li>
+      <!--<li>{{ movie.director }}</li>
+      <li>{{ movie.genre }}</li>
+      <li>{{ movie.release_date }}</li>-->
+    {% endfor %}
+  </ol>
+  <a href='/movies'> Adicionar uma nova coleção de filmes</a>
+  <h2>Curiosidades sobre as coleções desses filmes em respectiva ordem</h2>
+  <ul>
+    {% for movie in movies %}
+      <li>{{ movie.director }}</li>
+      <li>{{ movie.genre }}</li>
+      <li>{{ movie.release_date }}</li>
+    {% endfor %}
+    
+  </ul>
+  <!--<ol>
+    <li><b>Indiana Jones</b></li>
+    <li>Senhor dos Anéis</li>
+    <li>Star Wars</li>
+  </ol>-->
+  <h2><i>Filmes favoritos de cada coleção</i></h2>
+  <ol>
+    {% for movie in fMovies %}
+      <li>{{ movie.title }}<a href='/fMovies/update/{{ movie.id }}'> Atualizar    </a>
+        <a href='/fMovies/delete/{{ movie.id }}'> Deletar </a>
+      </li>
+    {% endfor %}
+  </ol>
+  <a href='/fMovies'> Adicionar um novo filme favorito </a>
+  <h2>Curiosidades sobre esses filmes:</h2>
+  <h3>Frequência em que assisto, Opinião crítica e prioridades de recomendação</h3>
+  <ul>
+    {% for curiosities in fMovies %}
+      <li>{{ curiosities.how_often }}  
+      </li>
+      <li>{{ curiosities.review }}
+      </li>
+      <li>{{ curiosities.priority }}
+      </li>
+    {% endfor %}
+  </ul>
+  <!--<ul>
+    <li>Os Caçadores da Arca Perdida</li>
+    <li>O Retorno do Rei</li>
+    <li>A Vingança dos Sith</li>
+  </ul>-->
+  <p>A fim de mostrar sobre os filmes da lista acima, a opinião dos críticos profissionais de filmes e a opinião do público com base nos dados do rotten tomatoes irei os expor por meio de uma tabela</p>
+  <table style="width:100%">
+    <tr>
+      <th>Filme</th>
+      <th>Opinião crítica</th>
+      <th>Opinião do público</th>
+    </tr>
+    <tr>
+      <td>Indiana Jones I</td>
+      <td>93%</td>
+      <td>96%</td>
+    </tr>
+    <tr>
+      <td>Senhor dos Anéis III</td>
+      <td>94%</td>
+      <td>86%</td>
+    </tr>
+    <tr>
+      <td>Star Wars III</td>
+      <td>79%</td>
+      <td>66%</td>
+    </tr>
+  </table>
+  <img src= https://br.web.img3.acsta.net/medias/nmedia/18/91/97/58/20172484.jpg width=400>
+  <img src=https://igrejasaobenedito.com.br/wp-content/uploads/2018/08/trilogia-o-senhor-dos-aneis.jpg>
+  <img src=https://www.pixelstalk.net/wp-content/uploads/images6/4K-Star-Wars-HD-Wallpaper-Free-download.jpg width=600>
+  
+  
+  <script src="script.js"></script>
+
+ 
+ 
+</body>
+  
+
+</html>

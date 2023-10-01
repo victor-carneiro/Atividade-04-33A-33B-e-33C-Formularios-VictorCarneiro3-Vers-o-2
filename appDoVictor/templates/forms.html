@@ -1,0 +1,28 @@
+<h1>{{ action }} filmes</h1>
+
+<form method='post'>
+  {% csrf_token %}
+  <div>
+    <label>Título:</label>
+    <input name='title' value= '{{ movies.title }}'>
+  </div>
+
+   <div>
+    <label>Diretor:</label>
+    <input name='director' value= '{{ movies.director }}'>
+  </div>
+
+   <div>
+    <label>Gênero:</label>
+    <input name='genre' value= '{{ movies.value }}'>
+  </div>
+
+   <div>
+    <label>Data de lançamento:</label>
+    <input type='date'name='release_date' value= '{{ movies.release_date }}'>
+  </div>
+
+  <input type='submit' value='Registrar'>
+</form>
+
+

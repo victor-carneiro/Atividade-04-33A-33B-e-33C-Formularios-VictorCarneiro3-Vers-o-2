@@ -1,0 +1,34 @@
+<h1>{{ action }} filme favorito da coleção e curiosidades</h1>
+
+<form method='post'>
+  {% csrf_token %}
+  <div>
+    <label>Título:</label>
+    <input name='title' value= '{{ fMovies.title }}'>
+  </div>
+
+   <div>
+    <label>Frequência:</label>
+    <select name="how_often">
+      {% for opt in options_how_often %}
+        <option value="{{ opt.0 }}">{{ opt.1 }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+   <div>
+    <label>Crítica/opinião:</label>
+    <select name="review">
+      {% for opt in options_review %}
+        <option value="{{ opt.0 }}">{{ opt.1 }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+   <div>
+    <label>Ordem de prioridades</label>
+    <input type='number' name='priority' value= '{{ fMovies.priority }}'>
+  </div>
+
+  <input type='submit' value='Registrar'>
+</form>
